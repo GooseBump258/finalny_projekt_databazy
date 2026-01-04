@@ -38,6 +38,7 @@ Táto práca sa zameriava na analýzu datasetu Google Keywords Search, ktorý ob
 ### 1.4 Dátová architektúra
 #### ERD diagram
 Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na entitno-relačnom diagrame:
+![Popis obrázka](images/GOOGLE KEYWORDS TABULKA.png)
 
 
 
