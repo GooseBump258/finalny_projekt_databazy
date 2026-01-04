@@ -40,7 +40,7 @@ Táto práca sa zameriava na analýzu datasetu Google Keywords Search, ktorý ob
 Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na entitno-relačnom diagrame:
 
 <p align="center">
-  <img src="images/googlekeywordstabulka" alt="ERD diagram" width="250">
+  <img src="images/googlekeywordstabulka.png" alt="ERD diagram" width="250">
 </p>
 
 <p align="center"><em>Obrázok 1 Entitno-relačná schéma Google Keywords</em></p>
