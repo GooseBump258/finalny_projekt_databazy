@@ -22,8 +22,24 @@ Táto práca sa zameriava na analýzu datasetu Google Keywords Search, ktorý ob
 - optimalizovať obsah webových stránok
 - rozhodovať o výbere najvhodnejších kľúčových slov
 
-#### Zdrojové dáta pochádzajú z snowflake marketplace datasetu dostupného [Tu]([https://example.com](https://app.snowflake.com/marketplace/listing/GZT1ZA3NJP/similarweb-ltd-google-keywords-search-dataset-discover-all-searches-on-google?search=GOOGLE%20KEYWO))
-. Dataset obsahuje jednu hlavnú tabuľku:
+#### Zdrojové dáta pochádzajú z snowflake marketplace datasetu dostupného [tu](https://app.snowflake.com/marketplace/listing/GZT1ZA3NJP/similarweb-ltd-google-keywords-search-dataset-discover-all-searches-on-google?search=GOOGLE%20KEYWO)
+#### Dataset obsahuje jednu hlavnú tabuľku GOOGLE KEYWORDS:
+- CALIBRATED_CLICKS
+- CALIBRATED_USERS
+- CLEAN_LANDINGPAGE
+- COUNTRY
+- DATE
+- DAY
+- IS_BRANDED_KEYWORD
+- IS_QUESTION
+- KEYWORD
+- MONTH
+
+### 1.4 Dátová architektúra
+#### ERD diagram
+Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na entitno-relačnom diagrame:
+
+
 
 
 
