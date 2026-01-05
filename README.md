@@ -103,7 +103,7 @@ Keďže je dataset Google Keywords read-only s datasetom ako takým pracovať ne
 
 Príklad kódu:
 
-```
+```SQL
 CREATE OR REPLACE VIEW test AS
 SELECT *
 FROM GOOGLE_KEYWORDS_SEARCH_DATASET__DISCOVER_ALL_SEARCHES_ON_GOOGLE.DATAFEEDS.GOOGLE_KEYWORDS;
