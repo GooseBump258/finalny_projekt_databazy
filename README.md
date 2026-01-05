@@ -127,6 +127,10 @@ Následné tabuľky sa robili podľa 7 existujúcich SCD typov:
 
 
 ## 3.4 DIM date
+Časová dimenzia umožňujúca analýzu dát podľa dňa, mesiaca a roka.
+Každý dátum je unikátny a nemenný.
+
+SCD: Type 0 – dátumy sa nikdy nemenia.
 ```SQL
 CREATE OR REPLACE TABLE dim_date AS
 SELECT DISTINCT
@@ -142,6 +146,10 @@ FROM test;
 ```
 
 ## 3.5 DIM country
+Obsahuje zoznam krajín a ich názvy, slúži ako geografická dimenzia pre fakty.
+Dáta sú stabilné a nemenia sa často.
+
+SCD: Type 0 – krajiny sa nemenia, história nie je potrebná.
 ```SQL
 CREATE OR REPLACE TABLE dim_country AS
 SELECT DISTINCT
@@ -152,6 +160,10 @@ FROM countries c;
 ```
 
 ## 3.6 DIM keyword
+Ukladá kľúčové slová a prislúchajúce landing pages pre analytické účely.
+Zmeny sa prepíšu bez zachovania histórie.
+
+SCD: Type 1 – aktualizácia hodnoty bez histórie.
 ```SQL
 CREATE OR REPLACE TABLE dim_keyword AS
 SELECT DISTINCT
