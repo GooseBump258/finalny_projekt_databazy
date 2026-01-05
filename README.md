@@ -112,7 +112,7 @@ SELECT * FROM test LIMIT 10;
 ```
 Daný kód nám vytvorí view s názvom test a selectne všetky údaje z GOOGLE KEYWORDS datasetu, následne vďaka funkcii select ukáže prvých 10 riadkov(vid. nižšie).
 <p align="center">
-  <img src="images/hviezda_schema_google_keywords.png" alt="ERD diagram" width="780">
+  <img src="images/10_riadkov_GOOGLE.png" alt="ERD diagram" width="780">
 </p>
 
 <p align="center"><em>Obrázok 3 Prvých 10 riadkov raw view datasetu</em></p>
