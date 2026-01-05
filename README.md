@@ -128,16 +128,38 @@ Následné tabuľky sa robili podľa 7 existujúcich SCD typov:
 
 ## 3.4 DIM date
 ```SQL
+CREATE OR REPLACE TABLE dim_date AS
+SELECT DISTINCT
+    ROW_NUMBER() OVER (ORDER BY TO_DATE(date)) AS date_id,
+    TO_DATE(date) AS date,
+    day,
+    month,
+    year
+FROM test;
+
+
 
 ```
 
 ## 3.5 DIM country
 ```SQL
+CREATE OR REPLACE TABLE dim_country AS
+SELECT DISTINCT
+    c.country        AS country_id,
+    c.countryname    AS country
+FROM countries c;
 
 ```
 
 ## 3.6 DIM keyword
 ```SQL
+CREATE OR REPLACE TABLE dim_keyword AS
+SELECT DISTINCT
+    ROW_NUMBER() OVER (ORDER BY keyword) AS keyword_id,
+    keyword,
+    clean_landingpage AS clean_landing_page
+FROM test
+WHERE keyword IS NOT NULL;
 
 
 ```
