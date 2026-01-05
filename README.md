@@ -51,6 +51,23 @@ Z dôvodu číselných označení krajín vo vybranej databáze sme vytvorili cs
 
 ---
 # 2. Dimenzionálny model
+V ukážke máme navrhnutú schému hviezdy podľa Kimballovej metodológie.Obsahuje 1 tabuľku faktov fact_keywords, ktorá je prepojená s nasledujúcimi 3 dimenziami:
+- dim_date: obsahuje date,day a month. Ide o časové údaje o vyhľadávaní
+- dim_country: obsahuje id a krajinu
+- dim_keyword: obsahuje kľúčové slovo vyhľadania a landing page vyhľadávania
+
+Štruktúra hviezdicového modelu je znázornená na diagrame nižšie.
+
+<p align="center">
+  <img src="images/googlekeywordstabulka.png" alt="ERD diagram" width="250">
+</p>
+
+<p align="center"><em>Obrázok 2 Schéma hviezdy pre Google keywords</em></p>
+
+
+
+
+```
 
 
 
