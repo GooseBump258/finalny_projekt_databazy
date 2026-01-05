@@ -117,6 +117,9 @@ Daný kód nám vytvorí view s názvom test a selectne všetky údaje z GOOGLE 
 
 <p align="center"><em>Obrázok 3 Prvých 10 riadkov raw view datasetu</em></p>
 
+# 3.3 Transformácia dát
+
+
 
 
 
