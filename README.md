@@ -95,6 +95,27 @@ Prebieha už v cieľovom systéme
 - tvorba fact a dimension tabuliek (star schema)
 - Typicky pomocou SQL
 
+## 3.1 Extrakcia dát a zdroj
+Naše dáta sme čerpali s verejne dostupných databáz (Snowflake marketplace), marketplace slúži na zverejňovanie datasetov ktoré sú zväčša read-only a prístup si ku ním ako užívateľ musíme žiadať. Extrakcia je tým pádom jednoduchá a ide iba o požiadanie ku čítaniu tohto datasetu.
+
+## 3.2 Load dát 
+Keďže je dataset Google Keywords read-only s datasetom ako takým pracovať nevieme. Musíme si vytvoriť views - VIEW je kópia dát s ktorou mi ako neoprávnený užívatelia môžme pracovať pretože nezasahuje do už vytvoreného datasetu.
+
+Príklad kódu:
+
+```
+CREATE OR REPLACE VIEW test AS
+SELECT *
+FROM GOOGLE_KEYWORDS_SEARCH_DATASET__DISCOVER_ALL_SEARCHES_ON_GOOGLE.DATAFEEDS.GOOGLE_KEYWORDS;
+SELECT * FROM test LIMIT 10;
+
+```
+Daný kód nám vytvorí view s názvom test a selectne všetky údaje z GOOGLE KEYWORDS datasetu, následne vďaka funkcii select ukáže prvých 10 riadkov(vid. nižšie).
+<p align="center">
+  <img src="images/hviezda_schema_google_keywords.png" alt="ERD diagram" width="780">
+</p>
+
+<p align="center"><em>Obrázok 3 Prvých 10 riadkov raw view datasetu</em></p>
 
 
 
