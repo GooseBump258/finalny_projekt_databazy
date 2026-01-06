@@ -238,37 +238,109 @@ ORDER BY
 ---
 
 
-## Graf 2: 
+## Graf 2: 10 Najvyhľadávanejších otázok v spojených štátoch Amerických podľa počtu užívateľov
 
 ```SQL
+SELECT 
+    dk.keyword AS VYHLADAVANY_VYRAZ,
+    SUM(f.calibrated_users) AS SPOLU_UZIVATELOV,
+    SUM(f.calibrated_clicks) AS SPOLU_KLIKNUTI
+FROM fact_keywords f
+JOIN dim_keyword dk ON f.keyword_id = dk.keyword_id
+JOIN dim_country dc ON f.country_id = dc.country_id
+WHERE dc.country_name = 'United States of America'
+  AND f.is_question = '1'
+GROUP BY VYHLADAVANY_VYRAZ
+ORDER BY SPOLU_UZIVATELOV DESC
+LIMIT 10;
 
 ```
 
 ---
 
-## Graf 3: 
+## Graf 3: 25 Najvyhľadávanejších výrazov na Slovensku za mesiac jún v roku 2022 podľa počtu užívateľov
 
 ```SQL
+SELECT 
+    dk.keyword AS VYHLADAVANY_VYRAZ,
+    SUM(f.calibrated_users) AS SPOLU_UZIVATELOV,
+    SUM(f.calibrated_clicks) AS SPOLU_KLIKNUTI
+FROM fact_keywords f
+JOIN dim_keyword dk ON f.keyword_id = dk.keyword_id
+JOIN dim_country dc ON f.country_id = dc.country_id
+JOIN dim_date dd ON f.date_id = dd.date_id
+WHERE dc.country_name = 'Slovakia'
+  AND dd.month = '06'
+  AND dd.year = '22'
+GROUP BY VYHLADAVANY_VYRAZ
+ORDER BY SPOLU_UZIVATELOV DESC
+LIMIT 25;
 
 ```
 
 ---
 
-## Graf 4:
+## Graf 4: Najvyhľadávanejší výraz na Slovensku za každý deň v mesiaci jún v roku 2022
 
 ```SQL
+WITH ranked AS (
+    SELECT
+        dd.date AS den,
+        dk.keyword AS najvyhladavanejsi_vyraz,
+        SUM(f.calibrated_clicks) AS pocet_kliknuti,
+        ROW_NUMBER() OVER (
+            PARTITION BY dd.date
+            ORDER BY SUM(f.calibrated_clicks) DESC
+        ) AS rn
+    FROM fact_keywords f
+    JOIN dim_keyword dk ON f.keyword_id = dk.keyword_id
+    JOIN dim_country dc ON f.country_id = dc.country_id
+    JOIN dim_date dd ON f.date_id = dd.date_id
+    WHERE dc.country_name = 'Slovakia'
+      AND dd.month = '06'
+      AND dd.year = '22'
+    GROUP BY dd.date, dk.keyword
+)
+SELECT 
+    den,
+    najvyhladavanejsi_vyraz,
+    pocet_kliknuti
+FROM ranked
+WHERE rn = 1
+ORDER BY den;
 
 ```
 ---
 
-## Graf 5: 
+## Graf 5: Počet užívateľov pre okolité štáty v mesiaci jún v roku 2022
 ```SQL
+SELECT 
+    dc.country_name AS krajina,
+    SUM(f.calibrated_users) AS pocet_uzivatelov,
+    SUM(f.calibrated_clicks) AS pocet_kliknuti
+FROM fact_keywords f
+JOIN dim_country dc ON f.country_id = dc.country_id
+JOIN dim_date dd ON f.date_id = dd.date_id
+WHERE dc.country_name IN ('Slovakia', 'Czechia','Poland','Hungary','Ukraine')
+  AND dd.month = 06
+  AND dd.year = 22
+GROUP BY dc.country_name
+ORDER BY pocet_uzivatelov DESC;
 
 ```
 
 ---
-## Graf 6: 
+## Graf 6: 10 krajín s najväčším počtom vyhľadávaní podľa počtu užívateľov
 ```SQL
+SELECT 
+    dc.country_name AS NAZOV_KRAJINY,
+    SUM(f.calibrated_users) AS SPOLU_UZIVATELOV,
+    SUM(f.calibrated_clicks) AS SPOLU_KLIKNUTI,
+FROM fact_keywords f
+JOIN dim_country dc ON f.country_id = dc.country_id
+GROUP BY NAZOV_KRAJINY
+ORDER BY SPOLU_UZIVATELOV DESC
+LIMIT 10;
 
 ```
 
