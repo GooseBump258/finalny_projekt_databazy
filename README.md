@@ -215,12 +215,26 @@ Na vizualizáciu dát použijeme sekciu Dashboard v snowflake, vytvorili sme zá
 <p align="center"><em>Obrázok 4 Dashboard datasetu Google keywords</em></p>
 ---
 
-## Graf 1: 
+## Graf 1: Počet vyhľadávaní slova youtube na svete za každý deň v mesiaci jún v roku 2022
 
 ```SQL
-
+SELECT
+    dd.date AS DEN,
+    SUM(f.calibrated_users) AS POCET_VYHLADAVANI,
+    SUM(f.calibrated_clicks) AS POCET_KLIKNUTI
+FROM fact_keywords f
+JOIN dim_date dd 
+    ON f.date_id = dd.date_id
+JOIN dim_keyword dk 
+    ON f.keyword_id = dk.keyword_id
+WHERE dd.year = 2022
+  AND dd.month = 6
+  AND LOWER(dk.keyword) LIKE '%youtube%'
+GROUP BY
+    dd.date
+ORDER BY
+    dd.date;
 ```
-
 ---
 
 
