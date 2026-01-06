@@ -177,6 +177,9 @@ WHERE keyword IS NOT NULL;
 ```
 
 ## 3.7 Faktová tabuľka
+Táto fact tabuľka spája dátové dimenzie (date, country, keyword) s merateľnými hodnotami o výkone kľúčových slov.
+Obsahuje fakty ako počet používateľov a klikov spolu s kontextom platformy, webu a typu návštevy.
+Slúži na analytické dotazy v star schéme, napríklad sledovanie výkonu keywordov v čase a podľa krajiny
 
 ```SQL
 CREATE OR REPLACE TABLE fact_keywords AS
