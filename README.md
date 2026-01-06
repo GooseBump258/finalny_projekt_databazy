@@ -315,9 +315,10 @@ WHERE rn = 1
 ORDER BY den;
 
 ```
-Kód slúži na vytvorenie grafu ktorý vizualizuje najvyhľadávanejší výraz za každý jeden deň separátne
----
 
+Kód slúži na vytvorenie grafu ktorý vizualizuje najvyhľadávanejší výraz za každý jeden deň separátne
+
+---
 ## Graf 5: Počet užívateľov pre okolité štáty v mesiaci jún v roku 2022
 ```SQL
 SELECT 
