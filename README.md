@@ -213,22 +213,50 @@ Na vizualizáciu dát použijeme sekciu Dashboard v snowflake, vytvorili sme zá
 </p>
 
 <p align="center"><em>Obrázok 4 Dashboard datasetu Google keywords</em></p>
+---
+
+## Graf 1: 
+
+```SQL
+
+```
+
+---
 
 
+## Graf 2: 
 
+```SQL
 
+```
 
+---
 
+## Graf 3: 
 
+```SQL
 
+```
 
+---
 
+## Graf 4:
 
+```SQL
 
+```
+---
 
+## Graf 5: 
+```SQL
 
+```
 
+---
+## Graf 6: 
+```SQL
 
+```
 
 
 
